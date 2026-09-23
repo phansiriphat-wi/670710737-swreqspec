@@ -71,3 +71,12 @@
 - ไฟล์ที่สร้างหรือแก้: `backend/app/config.py`, `backend/app/db/models.py`, `backend/app/db/session.py`, `backend/app/db/migrations/001_init.py`, `backend/tests/conftest.py`
 - ผลการทดสอบ: validation ด้วย SQLite in-memory ผ่าน; migration สร้าง `slots`, `bookings`, `audit_logs` ครบ และ `bookings` ไม่มี `national_id` แต่มี `hn`
 - สิ่งที่เกือบต้องเดาแต่ถามแทน: รูปแบบและวิธีออกหมายเลขคิวเป็น Q-02 จึงเก็บ `queue_no` เป็น nullable และยังไม่กำหนดวิธีออกเลข
+
+---
+
+## 2569-09-23 ไม่ระบุเวลา คำสั่ง: /implement T-13
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์ที่สร้างหรือแก้: `frontend/src/pages/SlotPicker.jsx`, `frontend/src/api/client.js`, `frontend/src/App.jsx`, `frontend/src/__tests__/SlotPicker.test.jsx`
+- ผลการทดสอบ: `cd frontend && npm test -- --run src/__tests__/SlotPicker.test.jsx` ผ่าน 2 tests; `npm run build` ผ่าน; static error check ไม่พบ error
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: spec ไม่ระบุรายชื่อแพ็กเกจ จึงใช้ช่องรับ `packageCode` แทนการสร้างรายชื่อแพ็กเกจเอง
