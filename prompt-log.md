@@ -62,3 +62,12 @@
 - ผลลัพธ์: specs/001-booking/plan.md
 - Constraint ที่ AI ยังไม่ได้ใช้: ไม่มี ทุก Constraint ใน spec ถูกระบุในตารางตรวจ Constraints และเชื่อมกับส่วนของแผนแล้ว
 - สิ่งที่ AI บอกว่าอยากเดาแต่ไม่ได้เดา: ขอบเขตช่วงเวลาใกล้เคียง, เกณฑ์ 3 นาที, ตัวชี้วัดการกระจายตามโควตา, สถานะคิวที่ยังไม่ได้ใช้, พฤติกรรมเมื่อ IDP/HIS ขัดข้อง และเงื่อนไขหลังเปลี่ยนแพ็กเกจ จึงคงไว้เป็น Q-01 และ Q-03 ถึง Q-07
+
+---
+
+## 2569-09-23 ไม่ระบุเวลา คำสั่ง: /implement T-01
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์ที่สร้างหรือแก้: `backend/app/config.py`, `backend/app/db/models.py`, `backend/app/db/session.py`, `backend/app/db/migrations/001_init.py`, `backend/tests/conftest.py`
+- ผลการทดสอบ: validation ด้วย SQLite in-memory ผ่าน; migration สร้าง `slots`, `bookings`, `audit_logs` ครบ และ `bookings` ไม่มี `national_id` แต่มี `hn`
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: รูปแบบและวิธีออกหมายเลขคิวเป็น Q-02 จึงเก็บ `queue_no` เป็น nullable และยังไม่กำหนดวิธีออกเลข
